@@ -1,0 +1,55 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Degradado azul */
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Ocupar toda la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor principal */
+main {
+    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+}
+
+/* Título */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Lista */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Enlaces */
+ul li {
+    margin: 15px 0;
+}
+
+ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    background: #ff9800; /* Color naranja */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: 0.3s ease;
+}
+
+ul li a:hover {
+    background: #e68900;
+    transform: scale(1.1);
+}
