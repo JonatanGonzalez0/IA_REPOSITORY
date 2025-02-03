@@ -1,7 +1,47 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacuum Cleaner AI</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <link rel="stylesheet" href="styles.css"> <!-- Archivo CSS externo -->
+</head>
 <body>
-<h2>Simple reflex agent: Vacuum cleaner</h2>
-<p id="log"></p>
-<script type="text/javascript" src="cleaner.js"></script>
+    <h2>Simple Reflex Agent: Vacuum Cleaner</h2>
+    <div id="log" class="console"></div>
+    
+    <!-- Botones -->
+    <div class="buttons-container">
+        <a href="https://github.com/JonatanGonzalez0/IA_REPOSITORY/blob/master/vaccum-cleaner/cleaner.js" target="_blank" class="button">
+            <i class="fa-brands fa-github"></i> Ver Código Fuente
+        </a>
+        <button class="button" onclick="restartTest()">
+            <i class="fa-solid fa-rotate-right"></i> Test Again
+        </button>
+    </div>
+
+    <script type="text/javascript" src="cleaner.js"></script>
+
+    <script>
+        // Auto-scroll: Detecta cambios en el contenido y se desplaza al final
+        const logContainer = document.getElementById("log");
+
+        function autoScroll() {
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+
+        // Observador de cambios en el contenido de la consola
+        const observer = new MutationObserver(autoScroll);
+        observer.observe(logContainer, { childList: true });
+
+        // Función para reiniciar la simulación
+        function restartTest() {
+            logContainer.innerHTML = ""; // Limpia la consola
+            var states = ["A", "DIRTY", "DIRTY"];
+            var visitedStates = new Set();
+            test(states, visitedStates); // Reinicia la simulación
+        }
+    </script>
 </body>
 </html>

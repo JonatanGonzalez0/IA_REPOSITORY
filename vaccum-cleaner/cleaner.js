@@ -3,43 +3,45 @@
 
 function reflex_agent(location, state) {
     if (state == "DIRTY") return "CLEAN";
-    else if (location < states.length - 1) return "RIGHT";
-    else return "LEFT";
+    else if (location == "A") return "RIGHT";
+    else if (location == "B") return "LEFT";
 }
 
-function test(states, visited) {
+function test(states, visitedStates) {
     var location = states[0];		
-    var state = states[location + 1]; // Estado de la ubicación actual
+    var state = location == "A" ? states[1] : states[2];
     var action_result = reflex_agent(location, state);
 
     document.getElementById("log").innerHTML += "<br>Location: " + location + " | Action: " + action_result;
 
     if (action_result == "CLEAN") {
-        states[location + 1] = "CLEAN"; // Limpiar la ubicación
-        visited[location] = true; // Marcar la ubicación como visitada y limpia
+        if (location == "A") states[1] = "CLEAN";
+        else if (location == "B") states[2] = "CLEAN";
     } else if (action_result == "RIGHT") {
-        states[0] = location + 1; // Mover a la derecha
-    } else if (action_result == "LEFT" && location > 0) {
-        states[0] = location - 1; // Mover a la izquierda
+        states[0] = "B";
+    } else if (action_result == "LEFT") {
+        states[0] = "A";
     }
 
-    // Ensuciar aleatoriamente algunas ubicaciones
-    if (Math.random() < 0.3) states[1] = "DIRTY"; 
-    if (Math.random() < 0.3) states[2] = "DIRTY"; 
-    if (Math.random() < 0.3) states[3] = "DIRTY"; 
-    if (Math.random() < 0.3) states[4] = "DIRTY"; 
+    // Simular ensuciamiento aleatorio para explorar más estados
+    if (Math.random() < 0.3) states[1] = "DIRTY";
+    if (Math.random() < 0.3) states[2] = "DIRTY";
 
-    // Verificar si todas las ubicaciones han sido limpiadas al menos una vez
-    if (visited.every(v => v)) {
-        document.getElementById("log").innerHTML += "<br>All locations have been cleaned at least once!";
+    // Guardar el estado actual en el Set
+    let stateKey = `${states[0]},${states[1]},${states[2]}`;
+    visitedStates.add(stateKey);
+
+    // Verificar si se han visitado los 8 estados posibles
+    if (visitedStates.size >= 8) {
+        document.getElementById("log").innerHTML += "<br>✅ All 8 states have been visited! ✅";
         return;
     }
 
-    setTimeout(function(){ test(states, visited); }, 2000);
+    setTimeout(function(){ test(states, visitedStates); }, 300);
 }
 
-// Inicialización de ubicaciones y estados
-var states = [0, "DIRTY", "DIRTY", "DIRTY", "DIRTY"];
-var visited = new Array(states.length - 1).fill(false); // Control de estados limpiados
+// Inicialización
+var states = ["A", "DIRTY", "DIRTY"];
+var visitedStates = new Set();
 
-test(states, visited);
+test(states, visitedStates);
