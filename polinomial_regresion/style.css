@@ -44,6 +44,7 @@
    
    #metrics {
      text-align: center;
+     margin-bottom: 20px;
    }
    
    #metrics p {
@@ -51,5 +52,36 @@
      color: #69f0ae;
      margin: 8px 0;
      text-shadow: 0 0 4px rgba(105, 240, 174, 0.6);
+   }
+   
+   /* ==== Tabla resumen ==== */
+   #table_div {
+     overflow-x: auto;
+     margin-top: 20px;
+   }
+   
+   #table_div table {
+     width: 100%;
+     border-collapse: collapse;
+   }
+   
+   #table_div th,
+   #table_div td {
+     padding: 8px 12px;
+     border: 1px solid #00e5ff;
+   }
+   
+   #table_div th {
+     background: #0a0a0a;
+     color: #00e5ff;
+     text-align: left;
+   }
+   
+   #table_div td {
+     color: #cfd8dc;
+   }
+   
+   #table_div tbody tr:nth-child(even) {
+     background: rgba(0, 229, 255, 0.05);
    }
    
