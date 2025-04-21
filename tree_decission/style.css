@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0d0d0d;
+  color: #cfd8dc;
+  font-family: 'Share Tech Mono', monospace;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #1a1a1a;
+  border: 1px solid #00e5ff;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,229,255,0.6);
+}
+
+h1 {
+  text-align: center;
+  color: #00e5ff;
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-shadow: 0 0 8px rgba(0,229,255,0.8);
+}
+
+/* Sugerencias */
+#suggestions {
+  margin-bottom: 20px;
+}
+#suggestions button {
+  background: #33ffea;
+  color: #0d0d0d;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-family: inherit;
+}
+#suggestions button:hover {
+  background: #5cfff0;
+}
+
+/* Selector */
+.selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.selector input {
+  margin-right: 4px;
+  accent-color: #00e5ff;
+}
+.selector label {
+  color: #cfd8dc;
+}
+
+/* Botón evaluar */
+#evaluate-btn {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  background: #00e5ff;
+  color: #0d0d0d;
+  border: none;
+  border-radius: 4px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background .2s;
+}
+#evaluate-btn:hover {
+  background: #33ffff;
+}
+
+/* Tabla de datos */
+#table-container {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+#table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#table-container th,
+#table-container td {
+  border: 1px solid #00e5ff;
+  padding: 6px 8px;
+  text-align: center;
+}
+#table-container th {
+  background: #0a0a0a;
+  color: #00e5ff;
+}
+#table-container td {
+  color: #cfd8dc;
+}
+#table-container tbody tr:nth-child(even) {
+  background: rgba(0,229,255,0.05);
+}
+
+/* Log de resultados */
+#log {
+  white-space: pre-wrap;
+  font-family: 'Share Tech Mono', monospace;
+  color: #69f0ae;
+  text-shadow: 0 0 4px rgba(105,240,174,0.6);
+  margin-top: 20px;
+  line-height: 1.4;
+}
